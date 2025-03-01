@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Vazir";
+    src: url("../fonts/vazir/Vazir.woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Light";
+    src: url("../fonts/vazir/Vazir-Light.woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Medium";
+    src: url("../fonts/vazir/Vazir-Medium.woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Bold";
+    src: url("../fonts/vazir/Vazir-Bold.woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Thin";
+    src: url("../fonts/vazir/Vazir-Thin.woff2");
+    font-display: swap;
+  }
+
+  body {
+    @apply font-Vazir;
+    /* background: url("../img/headerBgDesktop.webp");
+        background-repeat: no-repeat; */
+  }
+}
+
+@layer components {
+  .mobile-menu-active {
+    @apply bg-orange-200/20 text-orange-400 h-10 rounded-md;
+  }
+
+  .submenu {
+    @apply hidden flex-col gap-y-3 pr-7 mt-3 text-sm text-zinc-600 font-Vazir dark:text-white;
+  }
+
+  .submenu--open {
+    @apply flex;
+  }
+
+  .submenu__item--active::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: #FDBA74;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .submenu__item--active {
+    padding-right: 10px;
+    position: relative;
+    color: #FDBA74;
+    text-decoration: underline;
+  }
+
+  .overlay {
+    @apply invisible opacity-0 md:hidden fixed inset-0 w-full h-full bg-black/40 z-10 transition-all;
+  }
+
+  .overlay--visible {
+    @apply visible opacity-100;
+  }
+
+  .circle {
+    @apply rounded-full border flex justify-center items-center;
+  }
+
+  .circle--parent {
+    @apply absolute bottom-0 right-0 left-0 mx-auto translate-y-2/4;
+  }
+
+  .circle--lg {
+    @apply w-[203px] h-[203px] border-white/25;
+  }
+
+  .circle--md {
+    @apply w-[145px] h-[145px] border-white/50;
+  }
+
+  .circle--sm {
+    @apply w-[95px] h-[95px] border-white/80;
+  }
+
+  @media screen and (min-width:760px) {
+    html.dark .products {
+      background-image: url("../img/products-bg.png");
+    }
+
+    .products {
+      background: linear-gradient(rgba(243, 244, 246, 0.65), rgba(243, 244, 246, 0.65)), url("../img/products-bg.png");
+      /* background: url("../img/products-bg.png"); */
+      /* background-color: rgba(255,255,255,0.65); */
+      /* background-blend-mode: lighten; */
+      height: 900px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+
+  .mid-large-style {
+    display: flex;
+    gap: 120px;
+    align-items: center;
+  }
+
+
+
+}
